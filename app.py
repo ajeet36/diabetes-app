@@ -12,7 +12,7 @@ import streamlit as st
 
 
 # loading the saved model
-loaded_model = pickle.load(open(r'C:/Users/dell/OneDrive/Desktop/Diabetic_deployment/trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('C:/Users/dell/OneDrive/Desktop/Diabetic_deployment/trained_model.sav', 'rb'))
 
 
 # creating a function for Prediction
@@ -72,9 +72,20 @@ def main():
     
 if __name__ == '__main__':
     main()
-    
-    
-    
+
+
+
+
+import pickle
+
+model_path = 'C:/Users/dell/OneDrive/Desktop/Diabetic_deployment/trained_model.sav'
+
+try:
+    with open(model_path, 'rb') as file:
+        loaded_model = pickle.load(file)
+except FileNotFoundError:
+    print(f"Error: Model file '{model_path}' not found. Please check the file path.")
+
     
     
     
